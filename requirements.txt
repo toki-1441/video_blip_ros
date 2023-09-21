@@ -1,0 +1,9 @@
+accelerate==0.22.0
+av==10.0.0
+decord==0.6.0
+einops==0.6.1
+Pillow==9.5.0
+torch==1.13.1
+torchvision==0.14.1
+tqdm==4.64.1
+transformers @ git+https://github.com/huggingface/transformers@b4773273949b9360d1d38e51fc572340e0eda216
