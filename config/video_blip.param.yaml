@@ -1,0 +1,5 @@
+/**:
+  ros__parameters:
+    image_topic_name: '/color/image'
+    output_text_topic: '/blip/data'
+    model_name: 'kpyu/video-blip-opt-2.7b-ego4d'
