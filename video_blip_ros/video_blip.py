@@ -33,11 +33,13 @@ class VideoBlipNode(Node):
         self.declare_parameter('image_topic_name', '/image_raw')
         self.declare_parameter('output_text_topic', '/blip/data')
         self.declare_parameter('model_name', 'kpyu/video-blip-opt-2.7b-ego4d')
+        self.declare_parameter('question', '')
 
         # read params
         self.image_topic = self.get_parameter('image_topic_name').get_parameter_value().string_value
         self.output_topic = self.get_parameter('output_text_topic').get_parameter_value().string_value
         self.model_name = self.get_parameter('model_name').get_parameter_value().string_value
+        self.prompt = self.get_parameter('question').get_parameter_value().string_value
 
 
         # pub sub
@@ -88,7 +90,7 @@ class VideoBlipNode(Node):
         process blip and generate text
         '''
         self.get_logger().info('process')
-        inputs = self.processor(images=image, return_tensors="pt").to(self.device, torch.float16)
+        inputs = self.processor(images=image, text=self.prompt, return_tensors="pt").to(self.device, torch.float16)
         generated_ids = self.blip_model.generate(
                 **inputs
             )
