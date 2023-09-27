@@ -1,6 +1,10 @@
 /**:
   ros__parameters:
-    image_topic_name: '/color/image'
+    image_topic_name: '/image_raw'
     output_text_topic: '/blip/data'
     model_name: 'kpyu/video-blip-opt-2.7b-ego4d'
-    question: ''
+    question: 'Question: Could you describe the driving image? Answer:'
+    sensory_memory: 15
+    camera_height: 1080
+    camera_width: 1920
+    max_count: 30
